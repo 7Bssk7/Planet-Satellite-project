@@ -21,12 +21,12 @@ interface IPlanet{
 
     public double getDistanceFromSun();
 
-    public double getPerihelion()
+    public double getPerihelion();
 
-    public TreeSet getSatelliteSet();
+    public TreeSet<Satellite> getSatelliteSet();
 
     public Satellite getSatellite(String satelliteName);
 
-    pubilc void addSatellite(Satellite objSat);
+    public void addSatellite(Satellite objSat);
 
 }

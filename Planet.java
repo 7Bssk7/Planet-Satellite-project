@@ -1,6 +1,6 @@
 import java.util.TreeSet;
 
-public class Planet implements IPlanet{
+public class Planet implements IPlanet, Comparable<Planet>{
     private String pName;
     private float pMass;
     private int pDiameter;
@@ -11,8 +11,48 @@ public class Planet implements IPlanet{
     private double pDayLength;
     private double pDistanceFromSun;
     private double pPerihelion;
+    private double pAphelion;
+    private double pOrbitalPeriod;
+    private double pOrbitalVelocity;
+    private double pOrbitalInclination;
+    private double pOrbitalEccentricity;
+    private double pObliquityToOrbit;
+    private int pMeanTemperature;
+    private String pSurfacePressure;
+    private int pNumberOfMoons;
+    private String pHasRingSystem;
+    private String pHasGlobalMagneticField;
+
     private TreeSet<Satellite> pSatelliteSet = new TreeSet<>();
 
+    Planet(String Name, float Mass, int Diameter, int Density, double Gravity,
+        double EscapeVelocity, double RotationPeriod, double DayLength, double DistanceFromSun,
+        double Perihelion, double Aphelion, double OrbitalPeriod, double OrbitalVelocity, double OrbitalInclination, double OrbitalEccentricity,
+        double ObliquityToOrbit, int MeanTemperature, String SurfacePressure, int NumberOfMoons, String HasRingSystem, String HasGlobalMagneticField){
+
+        pName = Name;
+        pMass = Mass;
+        pDiameter = Diameter;
+        pDensity = Density;
+        pGravity = Gravity;
+        pEscapeVelocity = EscapeVelocity;
+        pRotationPeriod = RotationPeriod;
+        pDayLength = DayLength;
+        pDistanceFromSun = DistanceFromSun;
+        pPerihelion = Perihelion;
+        pAphelion = Aphelion;
+        pOrbitalPeriod = OrbitalPeriod;
+        pOrbitalVelocity = OrbitalVelocity;
+        pOrbitalInclination = OrbitalInclination;
+        pOrbitalEccentricity = OrbitalEccentricity;
+        pObliquityToOrbit = ObliquityToOrbit;
+        pMeanTemperature = MeanTemperature;
+        pSurfacePressure = SurfacePressure;
+        pNumberOfMoons = NumberOfMoons;
+        pHasRingSystem = HasRingSystem;
+        pHasGlobalMagneticField = HasGlobalMagneticField; 
+
+    }
 
     public String getName(){
         return pName;
@@ -74,6 +114,11 @@ public class Planet implements IPlanet{
 
     public void addSatellite(Satellite objSat){
         pSatelliteSet.add(objSat);
+    }
+
+    @Override
+    public int compareTo(Planet p){
+        return this.pName.compareTo(p.getName());
     }
 
 
